@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon"href="ed487e0cc5ec61b238fd.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <title>BunBo.k_hanh & Meowxinhhh</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('Orange Gradient Sunset Desktop Wallpaper.png'); 
+            background-size: cover;
+            background-position: center; 
+            margin: 0;
+            font-family: Helvetica, sans-serif;
+        }
+
+        #days {
+            width: 100%; 
+            max-width: 1000px; 
+            text-align: center;
+            font-size: 14em;
+            font-weight: bold;
+            font-family: 'Great Vibes', cursive;
+            background: linear-gradient(180deg, rgba(84, 178, 241, 0.877) 11.2%, rgb(255, 126, 165) 91.1%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            transform: translateY(-120px); 
+        }
+        
+        
+    </style>
+</head>
+
+<body>
+    <div id="days"></div>
+    <script>
+
+        const startDate = '2024-06-05';
+        const timeDiff = new Date() - new Date(startDate);
+        const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        document.getElementById('days').textContent = daysDiff;
+    </script>
+</body>
+
+</html>
