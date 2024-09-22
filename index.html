@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon"href="ed487e0cc5ec61b238fd.jpg">
+    <link rel="icon" type="image/x-icon" href="3ec851bd0788a1d6f899.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <title>BunBo.k_hanh & Meowxinhhh</title>
     <style>
@@ -13,11 +13,21 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-image: url('Orange Gradient Sunset Desktop Wallpaper.png'); 
-            background-size: cover;
-            background-position: center; 
             margin: 0;
+            padding: 0;
             font-family: Helvetica, sans-serif;
+            overflow: hidden; /* Đảm bảo không có thanh cuộn */
+        }
+
+        /* Video background */
+        #video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw; /* Chiều rộng toàn màn hình */
+            height: 100vh; /* Chiều cao toàn màn hình */
+            object-fit: cover; /* Đảm bảo video giữ nguyên kích thước và không bị cắt */
+            z-index: -1; /* Đặt video ở phía sau nội dung khác */
         }
 
         #days {
@@ -36,12 +46,13 @@
             margin-top: -20px;
             margin-left: 170px;
         }
+
         #container {
             width: 100%; 
             max-width: 1000px; 
             text-align: center;
-            
         }
+
         #label {
             font-size: 2em;
             font-weight: bold;
@@ -50,6 +61,7 @@
             margin-left: 350px;
             transform: translateY(-160px); 
         }
+
         #clock {
             font-size: 2em;
             font-weight: bold;
@@ -59,22 +71,22 @@
             margin-left: 370px;
             transform: translateY(-100px); 
         }
+
         #calendar {
             position: relative;
             width: 300px;
-            height:300px;
+            height: 300px;
             padding: 20px;
             margin-top: 450px;
             margin-left: 20px;
-            /* background-image: url('calendar.jpg');
-            background-size: contain; */
             background-color: rgba(255, 255, 255, 0.5);
             border-radius: 20px;
             text-align: center;
             font-family: 'Great Vibes', cursive;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            overflow:hidden;
+            overflow: hidden;
         }
+
         #calendar::before {
             content: "";
             position: absolute;
@@ -89,10 +101,12 @@
             z-index: 1; 
             border-radius: 20px; 
         }
+
         #calendar-grid, #calendar-header {
             position: relative;
             z-index: 2; 
         }
+
         #calendar-header {
             font-size: 2em;
             margin-bottom: 20px;
@@ -115,11 +129,16 @@
             color: red;
         }
 
-        
     </style>
 </head>
 
 <body>
+    <!-- Video Background -->
+    <video id="video-background" autoplay muted loop>
+        <source src="Orange Gradient Sunset Desktop Wallpaper.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
     <div id="container">
         <div id="days"></div>
         <div id="label">Days</div>
@@ -130,13 +149,13 @@
         <div id="calendar-grid">
         </div>
     </div>
-    
-    <script>
 
+    <script>
         const startDate = '2024-06-05';
         const timeDiff = new Date() - new Date(startDate);
         const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
         document.getElementById('days').textContent = daysDiff;
+
         function updateClock() {
             const now = new Date();
             let hours = now.getHours();
@@ -150,21 +169,20 @@
             document.getElementById('clock').textContent = currentTime;
         }
         setInterval(updateClock, 1000);
-            function createCalendar() {
+
+        function createCalendar() {
             const calendarGrid = document.getElementById('calendar-grid');
             const now = new Date();
-            const currentMonth = now.getMonth(); // Lấy tháng hiện tại (0-11)
-            const currentYear = now.getFullYear(); // Lấy năm hiện tại
-            const today = now.getDate(); // Lấy ngày hiện tại
-            
-            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate(); // Số ngày trong tháng
+            const currentMonth = now.getMonth();
+            const currentYear = now.getFullYear();
+            const today = now.getDate();
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
 
             for (let day = 1; day <= daysInMonth; day++) {
                 const dayDiv = document.createElement('div');
                 dayDiv.classList.add('day');
                 dayDiv.textContent = day;
 
-                // Nếu là ngày hiện tại, thêm class 'today' để tô đỏ
                 if (day === today) {
                     dayDiv.classList.add('today');
                 }
