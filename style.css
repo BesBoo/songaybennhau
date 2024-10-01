@@ -1,3 +1,4 @@
+/* Định dạng chung cho body */
 body {
     display: flex;
     justify-content: center;
@@ -8,7 +9,6 @@ body {
     font-family: Helvetica, sans-serif;
     overflow: hidden; 
 }
-
 
 #video-background {
     position: fixed;
@@ -27,7 +27,7 @@ body {
     font-size: 14em;
     font-weight: bold;
     font-family: 'Great Vibes', cursive;
-    background: linear-gradient(180deg, rgba(84, 178, 241, 0.877) 11.2%, rgb(255, 126, 165) 91.1%);
+    background: linear-gradient(180deg, rgba(84, 178, 241, 0.877) 11.2%, rgb(255, 126, 165) 80.1%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -65,11 +65,11 @@ body {
 #calendar {
     position: relative;
     width: 300px;
-    height: 300px;
+    height: 330px; 
     padding: 20px;
     margin-top: 450px;
     margin-left: 20px;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.7);
     border-radius: 20px;
     text-align: center;
     font-family: 'Great Vibes', cursive;
@@ -103,6 +103,19 @@ body {
     color: black;
 }
 
+#calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin-bottom: 10px;
+}
+
+.weekday {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: black;
+    font-family: 'Dancing Script', cursive;
+}
+
 #calendar-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr); 
@@ -111,7 +124,6 @@ body {
 
 .day {
     padding-top: 10px;
-
     font-size: 1.5em;
     font-weight: bold;
 }
