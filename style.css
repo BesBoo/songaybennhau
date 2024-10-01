@@ -1,0 +1,121 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
+    overflow: hidden; 
+}
+
+
+#video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh; 
+    object-fit: cover; 
+    z-index: -1; 
+}
+
+#days {
+    width: 100%; 
+    max-width: 1000px; 
+    text-align: center;
+    font-size: 14em;
+    font-weight: bold;
+    font-family: 'Great Vibes', cursive;
+    background: linear-gradient(180deg, rgba(84, 178, 241, 0.877) 11.2%, rgb(255, 126, 165) 91.1%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    transform: translateY(-100px); 
+    margin-top: -20px;
+    margin-left: 170px;
+}
+
+#container {
+    width: 100%; 
+    max-width: 1000px; 
+    text-align: center;
+}
+
+#label {
+    font-size: 2em;
+    font-weight: bold;
+    font-family: 'Great Vibes', cursive;
+    color: black;
+    margin-left: 350px;
+    transform: translateY(-160px); 
+}
+
+#clock {
+    font-size: 2em;
+    font-weight: bold;
+    font-family: 'Great Vibes', cursive;
+    color: black;
+    margin-top:-50px;
+    margin-left: 350px;
+    transform: translateY(-100px); 
+}
+
+#calendar {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    padding: 20px;
+    margin-top: 450px;
+    margin-left: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+#calendar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.1;
+    z-index: 1; 
+    border-radius: 20px; 
+}
+
+#calendar-grid, #calendar-header {
+    position: relative;
+    z-index: 2; 
+}
+
+#calendar-header {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: black;
+}
+
+#calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); 
+    grid-gap: 5px;
+}
+
+.day {
+    padding-top: 10px;
+
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.today {
+    color: red;
+}
