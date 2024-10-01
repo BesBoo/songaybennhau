@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>BunBo.k_hanh & Meowxinhhh</title>
-    
 </head>
 
 <body>
@@ -24,17 +23,18 @@
         <div id="clock"></div>
     </div>
     <div id="calendar">
-        <div id="calendar-header">September 2024</div>
-        <div id="calendar-grid">
-        </div>
+        <div id="calendar-header"></div>
+        <div id="calendar-weekdays"></div>
+        <div id="calendar-grid"></div>
     </div>
-    
 
     <script>
+
         const startDate = '2024-06-05';
         const timeDiff = new Date() - new Date(startDate);
         const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
         document.getElementById('days').textContent = daysDiff;
+
 
         function updateClock() {
             const now = new Date();
@@ -50,19 +50,42 @@
         }
         setInterval(updateClock, 1000);
 
+
         function createCalendar() {
             const calendarGrid = document.getElementById('calendar-grid');
+            const calendarHeader = document.getElementById('calendar-header');
+            const calendarWeekdays = document.getElementById('calendar-weekdays');
             const now = new Date();
             const currentMonth = now.getMonth();
             const currentYear = now.getFullYear();
             const today = now.getDate();
-            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            const monthNames = [
+                'January', 'February', 'March', 'April', 'May', 'June', 
+                'July', 'August', 'September', 'October', 'November', 'December'
+            ];
 
+            const weekdayNames = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];
+            calendarHeader.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+
+            calendarGrid.innerHTML = '';
+            calendarWeekdays.innerHTML = '';
+            weekdayNames.forEach(weekday => {
+                const weekdayDiv = document.createElement('div');
+                weekdayDiv.classList.add('weekday');
+                weekdayDiv.textContent = weekday;
+                calendarWeekdays.appendChild(weekdayDiv);
+            });
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+            for (let i = 0; i < firstDay; i++) {
+                const emptyDiv = document.createElement('div');
+                emptyDiv.classList.add('empty');
+                calendarGrid.appendChild(emptyDiv);
+            }
             for (let day = 1; day <= daysInMonth; day++) {
                 const dayDiv = document.createElement('div');
                 dayDiv.classList.add('day');
                 dayDiv.textContent = day;
-
                 if (day === today) {
                     dayDiv.classList.add('today');
                 }
@@ -70,8 +93,8 @@
                 calendarGrid.appendChild(dayDiv);
             }
         }
-
         createCalendar();
+        setInterval(createCalendar, 3600000);
     </script>
 </body>
 
