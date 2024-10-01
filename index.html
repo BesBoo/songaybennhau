@@ -6,136 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="3ec851bd0788a1d6f899.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>BunBo.k_hanh & Meowxinhhh</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            padding: 0;
-            font-family: Helvetica, sans-serif;
-            overflow: hidden; /* Đảm bảo không có thanh cuộn */
-        }
-
-        /* Video background */
-        #video-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw; /* Chiều rộng toàn màn hình */
-            height: 100vh; /* Chiều cao toàn màn hình */
-            object-fit: cover; /* Đảm bảo video giữ nguyên kích thước và không bị cắt */
-            z-index: -1; /* Đặt video ở phía sau nội dung khác */
-        }
-
-        #days {
-            width: 100%; 
-            max-width: 1000px; 
-            text-align: center;
-            font-size: 14em;
-            font-weight: bold;
-            font-family: 'Great Vibes', cursive;
-            background: linear-gradient(180deg, rgba(84, 178, 241, 0.877) 11.2%, rgb(255, 126, 165) 91.1%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-fill-color: transparent;
-            transform: translateY(-100px); 
-            margin-top: -20px;
-            margin-left: 170px;
-        }
-
-        #container {
-            width: 100%; 
-            max-width: 1000px; 
-            text-align: center;
-        }
-
-        #label {
-            font-size: 2em;
-            font-weight: bold;
-            font-family: 'Great Vibes', cursive;
-            color: black;
-            margin-left: 350px;
-            transform: translateY(-160px); 
-        }
-
-        #clock {
-            font-size: 2em;
-            font-weight: bold;
-            font-family: 'Great Vibes', cursive;
-            color: black;
-            margin-top:-50px;
-            margin-left: 370px;
-            transform: translateY(-100px); 
-        }
-
-        #calendar {
-            position: relative;
-            width: 300px;
-            height: 300px;
-            padding: 20px;
-            margin-top: 450px;
-            margin-left: 20px;
-            background-color: rgba(255, 255, 255, 0.5);
-            border-radius: 20px;
-            text-align: center;
-            font-family: 'Great Vibes', cursive;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-        }
-
-        #calendar::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0.1;
-            z-index: 1; 
-            border-radius: 20px; 
-        }
-
-        #calendar-grid, #calendar-header {
-            position: relative;
-            z-index: 2; 
-        }
-
-        #calendar-header {
-            font-size: 2em;
-            margin-bottom: 20px;
-            color: black;
-        }
-
-        #calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr); 
-            grid-gap: 5px;
-        }
-
-        .day {
-            padding-top: 10px;
-            font-size: 1.5em;
-            font-weight: bold;
-        }
-
-        .today {
-            color: red;
-        }
-
-    </style>
+    
 </head>
 
 <body>
     <!-- Video Background -->
     <video id="video-background" autoplay muted loop>
-        <source src="Orange Gradient Sunset Desktop Wallpaper.mp4" type="video/mp4">
+        <source src="Orange Gradient Sunset Desktop Wallpaper (1).mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
@@ -149,6 +28,7 @@
         <div id="calendar-grid">
         </div>
     </div>
+    
 
     <script>
         const startDate = '2024-06-05';
