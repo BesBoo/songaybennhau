@@ -6,17 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="3ec851bd0788a1d6f899.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
+    
     <title>BunBo.k_hanh & Meowxinhhh</title>
 </head>
 
 <body>
-    <!-- Video Background -->
     <video id="video-background" autoplay muted loop>
         <source src="Orange Gradient Sunset Desktop Wallpaper (1).mp4" type="video/mp4">
-        Your browser does not support the video tag.
     </video>
-
     <div id="container">
         <div id="days"></div>
         <div id="label">Days</div>
@@ -27,8 +26,31 @@
         <div id="calendar-weekdays"></div>
         <div id="calendar-grid"></div>
     </div>
-
+    <div style="margin-top: 5000px;opacity: 0;">hhh </div>
+    <div id="image-background"></div>
+    
     <script>
+        const videoBackground = document.getElementById('video-background');
+        const imageBackground = document.getElementById('image-background');
+        const container = document.getElementById('container'); 
+        const calendar = document.getElementById('calendar');
+
+        const scrollThreshold = 300;
+        window.onscroll = function() {
+            if (window.scrollY > scrollThreshold) {
+                
+                videoBackground.style.opacity = '0';
+                imageBackground.style.opacity = '1';
+                container.classList.add('hidden'); 
+                calendar.classList.add('hidden'); 
+            } else {
+            
+                videoBackground.style.opacity = '1';
+                imageBackground.style.opacity = '0';
+                container.classList.remove('hidden');
+                calendar.classList.remove('hidden'); 
+            }
+        };
 
         const startDate = '2024-06-05';
         const timeDiff = new Date() - new Date(startDate);
